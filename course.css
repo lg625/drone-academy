@@ -862,7 +862,11 @@ section
 	padding-right: 40px;
 	padding-left: 40px;
 	padding-top: 120px;
-	/*border: solid 1px #353a49;*/
+	padding-bottom: 120px;
+	background-image: linear-gradient(to top right, #1d1e22, #393f4d);
+	/*background-image: linear-gradient(to top right, #292a30, #5c5c63);*/
+	padding-top: 25px;
+	top: 120px;
 }
 .sidebar_section:not(:last-child)
 {
@@ -874,7 +878,7 @@ section
 	font-family: 'Roboto Slab', serif;
 	font-size: 24px;
 	font-weight: 700;
-	color: #384158;
+	color: white;
 	line-height: 0.75;
 	padding-bottom: 15px;
 }
@@ -893,6 +897,7 @@ section
 .feature_title
 {
 	padding-left: 31px;
+	color: #D3D3D3;
 }
 .feature_title i
 {
@@ -914,11 +919,12 @@ section
 .teacher_image
 {
 	width: 102px;
-	height: 102px;
+	height: 87px;
 }
 .teacher_image img
 {
 	max-width: 100%;
+	align-self: center;
 }
 .teacher_title
 {
@@ -929,7 +935,7 @@ section
 	font-family: 'Roboto Slab', serif;
 	font-size: 24px;
 	font-weight: 700;
-	color: #384158;
+	color: #F5F5F5;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -969,6 +975,7 @@ section
 }
 .teacher_info p
 {
+	color: #D3D3D3;
 	line-height: 2;
 }
 .sidebar_latest
@@ -1000,7 +1007,7 @@ section
 	font-family: 'Roboto Slab', serif;
 	font-size: 16px;
 	font-weight: 700;
-	color: #383749;
+	color: #FEFEFA;
 	line-height: 1.625;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
