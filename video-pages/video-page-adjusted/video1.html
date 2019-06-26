@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <!--<head></head>
+    <script id = "page-structure" src = "player-page.js"
+            description = "Stephen A. Smith fears the Brooklyn Nets may not want to sign Kyrie Irving 
+            in free agency and make him the face of their franchise if they can't also lure in Kevin Durant.">
+    </script>-->
+
+    <head>
+    	<title>Video 1</title>
+        <meta charset = "utf-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1">
+        <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link rel = "stylesheet" type = "text/css" href = "design.css">
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/bac819c396.js"></script>
+    </head>
+
+    <body>
+        <div class = "container-fluid">
+            <div class = "row d-flex align-items-start">
+                <!-- Left hand side / content -->
+                <div class = "col-lg-9 col-md-12 justify-content-start">
+                    <div class = "content">
+                        <!-- Video Player -->
+                        <div class = "player-container">
+                            <div id="player"></div>
+                        </div>
+
+                        <!--Description -->
+                        <div class = "description p-4 border">
+                            <h3>Video Title</h3>
+                            <p> + description + </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right hand side / sidebar -->
+                <div class = "col-lg-3 col-md-12 sticky-top sidebar d-flex flex-column align-items-end">
+                	<div class = "container-fluid sidebar-content-bar">
+	                    <div class = "row course-title">
+	                    	<div class = "col-12 mt-2 mb-3 d-flex justify-content-center">
+	                        	<h4>Course Name</h4> 
+	                        </div>
+	                    </div>
+
+	                    <div class = "row border video-list">
+	                    	<div class="col-12">
+		                        <ul class = "navbar-nav ml-auto">
+		                            <li class = "nav-item active">
+		                                <a id = "vid1" class = "nav-link disabled" href = "video1.html">Video #1</a>
+		                            </li>
+		                            <li class = "nav-item">
+		                                <a id = "vid2" class = "nav-link disabled" href = "video2.html">Video #2</a>
+		                            </li>
+		                        </ul>
+	                    	</div>	
+	                    </div>
+
+	                    <div class = "row video-buttons">
+	                    	<div class="col-xl-12">
+		                    	<div class = "row border d-flex align-items-center justify-content-around button-background">
+		                    		<div class ="col-xs-3 reverse-icon"><i class="fas fa-angle-double-left"></i></div>
+		                    		<div class ="col-xs-3 play-icon"><i class="fas fa-play"></i></div>
+		                    		<div class ="col-xs-3 play-icon"><i class="fas fa-pause"></i></div>
+		                    		<div class ="col-xs-3 reverse-icon"><i class="fas fa-angle-double-right"></i></div>
+		                    	</div>
+		                    </div>
+	                    </div>
+					</div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
+
+<script id = "player-code" vidID = "np_Doc4Gt2U" nextTag = "vid2" src = "player.js"></script>
+<script>
+    //Enables the link for the current video and every previous video
+    document.getElementById("vid1").classList.remove("disabled");
+</script>
