@@ -12,7 +12,9 @@
  * 
  */
 
-var description = document.getElementById("page-structure").getAttribute("description");
+var element = document.getElementById("page-structure");
+var description = element.getAttribute("description");
+var title = element.getAttribute("title");
 
 document.write(
     "<head>",
@@ -21,6 +23,8 @@ document.write(
         "<link rel = \"stylesheet\" href = \"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\">",
         "<script src = \"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"></script>",
         "<link rel = \"stylesheet\" type = \"text/css\" href = \"design.css\">",
+        //Font Awesome
+        "<script src= \"https://kit.fontawesome.com/bac819c396.js\"></script>",
     "</head>",
 
     "<body>",
@@ -34,30 +38,102 @@ document.write(
                             "<div id=\"player\"></div>",
                         "</div>",
 
-                        //Description
-                        "<div class = \"description p-4 border\">",
-                            "<h3>Description:</h3>",
-                            "<p>" + description + "</p>",
+                        "<!-- Tab links -->", 
+                        "<div class=\"tab\">",
+                            "<button id = \"description-tab\" class=\"tablinks\" onclick=\"tabClick(event, 'description')\">Description</button>",
+                            "<button id = \"transcript-tab\" class=\"tablinks\" onclick=\"tabClick(event, 'transcript')\">Transcript</button>",
+                            "<button id = \"instructor-tab\" class=\"tablinks\" onclick=\"tabClick(event, 'instructor')\">Instructor Info</button>",
+                        "</div>",
+
+                        "<!-- Tab content -->",
+                        "<div id=\"description\" class=\"tabcontent\">",
+                            "<h4>", title, "</h4>",
+                            "<p>", description, "</p>",
+                        "</div>",
+                        
+                        "<div id=\"transcript\" class=\"tabcontent\">",
+                            "<h4>Transcript</h4>",
+                            "<p>", "</p>", 
+                        "</div>",
+
+                        "<div id=\"instructor\" class=\"tabcontent\">",
+                            "<h4>Dwight Neptune</h4>",
+                            "<p>", "Personal Bio", "</p>", 
                         "</div>",
                     "</div>",
                 "</div>",
 
                 //Right hand side / sidebar
-                "<div class = \"col-md-3 col-sm-12 sticky-top sidebar\">",
-                    "<p id = \"textLabel\"> Time Elapsed: </p>",
-                    "<p id = \"timeLabel\"></p>",
-                    "<div>",
-                        "<ul class = \"navbar-nav ml-auto\">",
-                            "<li class = \"nav-item active\">",
-                                "<a id = \"vid1\" class = \"nav-link disabled\" href = \"video1.html\">Video #1</a>",
-                            "</li>",
-                            "<li class = \"nav-item\">",
-                                "<a id = \"vid2\" class = \"nav-link disabled\" href = \"video2.html\">Video #2</a>",
-                            "</li>",
-                        "</ul>",
+                "<div class = \"col-lg-3 col-md-12 sticky-top sidebar d-flex flex-column align-items-end\">",
+                    "<div class = \"container-fluid sidebar-content-bar\">",
+                        "<div class = \"row course-title\">",
+                            "<div class = \"col-12 mt-2 mb-3 d-flex justify-content-center\">",
+                                "<h4>Course Name</h4>", 
+                            "</div>",
+                        "</div>",
+
+                        "<div class = \"row border video-list\">",
+                        "<div class=\"col-12\">",
+                                "<ul class = \"navbar-nav ml-auto\">",
+                                    "<li class = \"nav-item\">",
+                                        "<div style = 'display: inline-flex; align-items: center;'>",
+                                            "<img style='height:auto; width:20%; vertical-align: middle;' src='video1-thumbnail.jpg'>",                                           
+                                            "<a style = 'padding-left:10px' id = \"video1\" class = \"nav-link disabled\" href = \"video1.html\"> Should the Nets Fear Signing Kyrie Without Kevin Durant?<p id = video1-progress>Progress: 0:00 of 7:05</p></a>",
+                                        "</div>",
+                                    "</li>",
+                                    "<li class = \"nav-item\">",
+                                        "<div style = 'display: inline-flex; align-items: center;'>",
+                                            "<img style='height:auto; width:20%; vertical-align: middle;' src='video2-thumbnail.jpg'>",                                           
+                                            "<a style = 'padding-left:10px' id = \"video2\" class = \"nav-link disabled\" href = \"video2.html\"> Te Soñé De Nuevo<p id = video2-progress>Progress: 0:00 of 3:19</p></a>",
+                                        "</div>",
+                                    "</li>",
+                                    "<li class = \"nav-item\">",
+                                        "<div style = 'display: inline-flex; align-items: center;'>",
+                                            "<img style='height:auto; width:20%; vertical-align: middle;' src='video3-thumbnail.jpg'>",                                           
+                                            "<a style = 'padding-left:10px' id = \"video3\" class = \"nav-link disabled\" href = \"video3.html\"> iOS 13 Public Beta: Dark Mode, Apple Maps, Reminders<p id = video3-progress>Progress: 0:00 of 9:05</p></a>",
+                                        "</div>",
+                                    "</li>",
+                                "</ul>",
+                            "</div>",	
+                        "</div>",
+
+                        "<div class = \"row video-buttons\">",
+                            "<div class=\"col-xl-12\">",
+                                "<div class = \"row border d-flex align-items-center justify-content-around button-background\">",
+                                    "<a id = \"reverse-button\" class = \"col-xs-3 reverse-icon\" href = \"\"><i class = \"fas fa-angle-double-left\"></i></a>",
+                                    "<a id = \"play-button\" class = \"col-xs-3 play-icon\" href =\"javascript:\"><i class = \"fas fa-play\"></i></a>",
+                                    "<a id = \"pause-button\" class = \"col-xs-3 play-icon\" href =\"javascript:\"><i class = \"fas fa-pause\"></i></a>",
+                                    "<a id = \"ff-button\" class = \"col-xs-3 reverse-icon disabled\" href = \"\"><i class = \"fas fa-angle-double-right\"></i></a>",
+                                "</div>",
+                            "</div>",
+                        "</div>",
                     "</div>",
                 "</div>",
             "</div>",
         "</div>",
     "</body>"
 );
+
+document.write("<script>");
+
+function tabClick(evt, tabName) {
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+document.write("</script>");
