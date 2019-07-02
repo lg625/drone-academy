@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head><title>Video 1</title></head>
+
+    <!-- 
+        Imports player-page.js file that contains the HTML structure for the player page.
+        Attributes:
+        - title: title of the video
+        - description: video description
+        - transcript: a written transcript of the video
+        - instructor-bio: the video instructor's personal bio
+    -->
     <script id = "page-structure" src = "player-page.js"
-            title = "Should the Nets fear signing Kyrie without Kevin Durant? | First Take"
-            description = "Stephen A. Smith fears the Brooklyn Nets may not want to sign Kyrie Irving 
-            in free agency and make him the face of their franchise if they can't also lure in Kevin Durant.">
+            title = "How did the Nets land Durant and Kyrie? By doing things the right way | The Jump"
+            description = "Rachel Nichols, Brian Windhorst, Nick Friedell and Amin Elhassan break down the 
+            Brooklyn Nets landing Kevin Durant and Kyrie Irving in 2019 NBA free agency."
+            transcript = "This is where the video transcript will go."
+            instructor-bio = "This is where the instructor bio will go.">
     </script>
 
 </html>
 
-<script id = "player-code" vidID = "np_Doc4Gt2U" currentTag = "video1" vidTime = "7:05" nextTag = "video2" src = "player.js"></script>
+<!-- 
+    Imports player.js file that contains the js code for the YouTube player.
+    Attributes:
+    - vidID: YouTube embed code for the video
+    - currentTag: the name of title of this HTML file (used to update the progress label)
+    - vidTime: total duration of this video
+    - nextTag: name of the next HTML page (used to enable the link to the next video)
+-->
+<script id = "player-code" vidID = "qdlj9vCok30" currentTag = "video1" vidTime = "4:01" nextTag = "video2" src = "player.js"></script>
+
 <script>
-    //Enables the link for the current video and every previous video
-    document.getElementById("video1").classList.remove("disabled");
+    //Designates this link as "current"
+    document.getElementById("video1").classList.add("current");
+
+    //Disables all links that come after this one
+    document.getElementById("video2").classList.add("disabled");
+    document.getElementById("video3").classList.add("disabled");
 </script>

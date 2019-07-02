@@ -68,7 +68,6 @@ body {
 }
 
 .sidebar a:hover {
-    color: black;
     font-weight: 500;
 }
 
@@ -84,6 +83,10 @@ body {
 
 .nav-link.disabled{
     color: #c5c5c5;
+}
+
+.nav-link.current{
+    color: #1573BB;
 }
 
 a.disabled, div.disabled {
@@ -112,7 +115,7 @@ a.disabled, div.disabled {
 .reverse-icon i {
     top: calc(50% - 1px);
     font-size: 45px;
-    color: #14bdee;
+    color: #1573BB;
     text-align: center;
 }
 
@@ -123,7 +126,7 @@ a.disabled, div.disabled {
 .play-icon i {
     top: calc(50% - 1px);
     font-size: 31px;
-    color: #14bdee;
+    color: #1573BB;
 }
 
 /* Tabs */

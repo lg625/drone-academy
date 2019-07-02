@@ -12,8 +12,11 @@
  * 
  */
 
+//Creates variables from the attributes that were passed in
 var element = document.getElementById("page-structure");
 var description = element.getAttribute("description");
+var transcript = element.getAttribute("transcript");
+var bio = element.getAttribute("instructor-bio");
 var title = element.getAttribute("title");
 
 document.write(
@@ -28,13 +31,6 @@ document.write(
     "</head>",
 
     "<body>",
-        // "<div id = \"alert-banner\" class=\"alert alert-success alert-dismissible fade\" role=\"alert\">",
-        //     "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">",
-        //         "<span aria-hidden=\"true\">&times;</span>",
-        //     "</button>",
-        //     "<strong>Holy guacamole!</strong> You should check in on some of those fields below.",
-        // "</div>",
-        
         "<div class = \"container-fluid\">",
             "<div class = \"row d-flex align-items-start\">",
                 /*  *****  Left Hand Side Content  *****  */
@@ -47,25 +43,25 @@ document.write(
 
                         /*  *****  Tabs  *****  */ 
                         "<div class=\"tab\">",
-                            "<button id = \"description-tab\" class=\"tablinks\" onclick=\"tabClick(event, 'description')\">Description</button>",
+                            "<button id = \"description-tab\" class=\"tablinks active\" onclick=\"tabClick(event, 'description')\">Description</button>", //Opens page with tab active
                             "<button id = \"transcript-tab\" class=\"tablinks\" onclick=\"tabClick(event, 'transcript')\">Transcript</button>",
                             "<button id = \"instructor-tab\" class=\"tablinks\" onclick=\"tabClick(event, 'instructor')\">Instructor Info</button>",
                         "</div>",
 
                         /*  *****  Tab Content  *****  */ 
-                        "<div id=\"description\" class=\"tabcontent\">",
+                        "<div id=\"description\" class=\"tabcontent\" style = \"display: block;\">", //Opens page with content displayed
                             "<h4>", title, "</h4>",
                             "<p>", description, "</p>",
                         "</div>",
                         
                         "<div id=\"transcript\" class=\"tabcontent\">",
                             "<h4>Transcript</h4>",
-                            "<p>", "</p>", 
+                            "<p>", transcript, "</p>", 
                         "</div>",
 
                         "<div id=\"instructor\" class=\"tabcontent\">",
                             "<h4>Dwight Neptune</h4>",
-                            "<p>", "Personal Bio", "</p>", 
+                            "<p>", "Personal Bio: ", "<br>", bio, "</p>", 
                         "</div>",
                     "</div>",
                 "</div>",
@@ -84,22 +80,23 @@ document.write(
                         "<div class = \"row border video-list\">",
                         "<div class=\"col-12\">",
                                 "<ul class = \"navbar-nav ml-auto\">",
+                                    //Each nav-item has a thumbnail image (the <img> tag) and link to its corresponding video (the <a> tag) which has the title of the video and the user's progress
                                     "<li class = \"nav-item\">",
                                         "<div style = 'display: inline-flex; align-items: center;'>",
                                             "<img style='height:auto; width:20%; vertical-align: middle;' src='video1-thumbnail.jpg'>",                                           
-                                            "<a style = 'padding-left:10px' id = \"video1\" class = \"nav-link active\" href = \"video1.html\"> Should the Nets Fear Signing Kyrie Without Kevin Durant?<p id = video1-progress>Progress: 0:00 of 7:05</p></a>",
+                                            "<a style = 'padding-left:10px; font-size:110%' id = \"video1\" class = \"nav-link active\" href = \"video1.html\"> How did the Nets land Durant and Kyrie? By doing things the right way | The Jump<p id = video1-progress>Progress: 0:00 of 4:01</p></a>",
                                         "</div>",
                                     "</li>",
                                     "<li class = \"nav-item\">",
                                         "<div style = 'display: inline-flex; align-items: center;'>",
                                             "<img style='height:auto; width:20%; vertical-align: middle;' src='video2-thumbnail.jpg'>",                                           
-                                            "<a style = 'padding-left:10px' id = \"video2\" class = \"nav-link disabled\" href = \"video2.html\"> Te Sone De Nuevo<p id = video2-progress>Progress: 0:00 of 3:19</p></a>",
+                                            "<a style = 'padding-left:10px; font-size:110%' id = \"video2\" class = \"nav-link active\" href = \"video2.html\"> The Sony Xperia 1 Deserves Your Attention<p id = video2-progress>Progress: 0:00 of 10:20</p></a>",
                                         "</div>",
                                     "</li>",
                                     "<li class = \"nav-item\">",
                                         "<div style = 'display: inline-flex; align-items: center;'>",
                                             "<img style='height:auto; width:20%; vertical-align: middle;' src='video3-thumbnail.jpg'>",                                           
-                                            "<a style = 'padding-left:10px' id = \"video3\" class = \"nav-link disabled\" href = \"video3.html\"> iOS 13 Public Beta: Dark Mode, Apple Maps, Reminders<p id = video3-progress>Progress: 0:00 of 9:05</p></a>",
+                                            "<a style = 'padding-left:10px; font-size:110%' id = \"video3\" class = \"nav-link active\" href = \"video3.html\"> JUMANJI: THE NEXT LEVEL - Official Trailer<p id = video3-progress>Progress: 0:00 of 2:43</p></a>",
                                         "</div>",
                                     "</li>",
                                 "</ul>",
@@ -127,6 +124,7 @@ document.write(
 
 document.write("<script>");
 
+//Function for displaying a the content of a tab when it is clicked
 function tabClick(evt, tabName) {
     var i, tabcontent, tablinks;
 

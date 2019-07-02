@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html>
     <head><title>Video 2</title></head>
+
+    <!-- 
+        Imports player-page.js file that contains the HTML structure for the player page.
+        Attributes:
+        - title: title of the video
+        - description: video description
+        - transcript: a written transcript of the video
+        - instructor-bio: the video instructor's personal bio
+    -->    
     <script id = "page-structure" src = "player-page.js"
-            title = "Te Soñé De Nuevo (Video Oficial)"
-            description = "Ozuna - Te Soñé De Nuevo (Video Oficial)">
+            title = "The Sony Xperia 1 Deserves Your Attention"
+            description = "The Sony Xperia 1 has received significant attention from the smartphone community. 
+            It features an unusual display (4k, OLED, 21:9) and therefore an unusual form factor. 
+            Has Sony finally created a smartphone capable of competing with the Samsung, Apple and others?"
+            transcript = "This is where the video transcript will go."
+            instructor-bio = "This is where the instructor bio will go.">
     </script>
 </html>
 
-<script id = "player-code" vidID = "eKaD_-Tl544" currentTag = "video2" vidTime = "3:19" nextTag = "video3" src = "player.js"></script>
-<script>
-    //Enables the link for the current video and every previous video
-    document.getElementById("video1").classList.remove("disabled");
-    document.getElementById("video2").classList.remove("disabled");
+<!-- 
+    Imports player.js file that contains the js code for the YouTube player.
+    Attributes:
+    - vidID: YouTube embed code for the video
+    - currentTag: the name of title of this HTML file (used to update the progress label)
+    - vidTime: total duration of this video
+    - nextTag: name of the next HTML page (used to enable the link to the next video)
+-->
+<script id = "player-code" vidID = "LvttOM9-dqA" currentTag = "video2" vidTime = "10:20" nextTag = "video3" src = "player.js"></script>
 
+<script>
+    //Designates this link as "current"
+    document.getElementById("video2").classList.add("current");
+
+    //Disables all links that come after this one
+    document.getElementById("video3").classList.add("disabled");
+
+    //Links the reverse button to the previous video
     document.getElementById("reverse-button").setAttribute("href", "video1.html");
 </script>
